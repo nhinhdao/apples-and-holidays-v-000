@@ -37,12 +37,12 @@ def add_supply_to_memorial_day(holiday_hash, supply)
     holiday_hash[:spring][:memorial_day] << supply
 end
 
-# def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
-#     # code here
-#     # remember to return the updated hash
-#     holiday_hash.store(:season, :holiday_name) << supply_array
-#     holiday_hash
-# end
+def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
+    # code here
+    # remember to return the updated hash
+    holiday_hash.merge({season: {holiday_name: supply_array}})
+    holiday_hash
+end
 
 def all_winter_holiday_supplies(holiday_hash)
     # return an array of all of the supplies that are used in the winter season
@@ -61,7 +61,7 @@ def all_supplies_in_holidays(holiday_hash)
     holiday_hash.each do |key, value|
         puts "#{key.capitalize}:"
         value.each do |hld, thing|
-            # hld.to_s
+            hld.to_s
             puts "  #{hld.to_s.split("_").join(" ").capitalize}: #{thing.join(", ")}"
         end
     end
