@@ -61,7 +61,7 @@ def all_supplies_in_holidays(holiday_hash)
     holiday_hash.each do |key, value|
         puts "#{key.capitalize}:"
         value.each do |hld, thing|
-            hld.each_char do |chr|
+            if hld != christmas && hld != thanksgiving
                 hld.split("_").join(" ") if chr == '_'
             end
             puts "  #{hld.capitalize}: #{thing.join(", ")}"
